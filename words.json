@@ -2,6 +2,7 @@
     "adjectives": [
         "fantastical",
         "fast",
+        "flying",
         "frozen",
         "furious"
     ],
@@ -9,6 +10,14 @@
         "castle",
         "house",
         "hut",
-        "tower"
+        "tower",
+        "village"
+    ],
+    "activities": [
+        "fighting",
+        "fishing",
+        "foraging",
+        "racing",
+        "selling"
     ]
 }
