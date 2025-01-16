@@ -15,6 +15,7 @@ for key in categories:
     print(str(index) + ": " + key)
     index += 1
 
+
 index = -1
 while index < 0 or index > len(categories):
     try:
@@ -22,4 +23,15 @@ while index < 0 or index > len(categories):
     except:
         pass
 
-print(random.choice(words["adjectives"]) + " " + random.choice(words[categories[index]]))
+print("Pick adjective count")
+adjectiveCount = 0
+while adjectiveCount <= 0:
+    try:
+        adjectiveCount = int(input())
+    except:
+        pass
+
+for i in range(adjectiveCount):
+    print(random.choice(words["adjectives"]), end=" ")
+          
+print(random.choice(words[categories[index]]))
