@@ -4,10 +4,27 @@ import random
 wordsFile = open("words.json")
 words = json.load(wordsFile)
 
+print("Should verbs count as adjectives? eg. quenching [y/n]")
+verbsAsAdjectives = False
+while True:
+    try:
+        string = input().lower()
+        if(string == "y"):
+            verbsAsAdjectives = True
+            break
+        if(string == "n"):
+            verbsAsAdjectives = False
+            break
+    except:
+        pass
+
 categories = []
 for key in words:
-    if key != "adjectives":
-        categories.append(key)
+    if key == "adjectives":
+        continue
+    if key == "activities" and verbsAsAdjectives:
+        continue
+    categories.append(key)
 
 print("Pick a category")
 index = 0
@@ -34,7 +51,9 @@ while adjectiveCount <= 0:
     except:
         pass
 
+adjectives = words["adjectives"] if not verbsAsAdjectives else [*words["adjectives"], *words["activities"]]
+
 for i in range(adjectiveCount):
-    print(random.choice(words["adjectives"]), end=" ")
+    print(random.choice(adjectives), end=" ")
           
 print(random.choice(words[categories[index]]))
