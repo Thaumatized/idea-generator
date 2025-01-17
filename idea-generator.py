@@ -15,13 +15,16 @@ for key in categories:
     print(str(index) + ": " + key)
     index += 1
 
+print(str(index) + ": random")
 
 index = -1
-while index < 0 or index > len(categories):
+while index < 0 or index > len(categories) + 1:
     try:
         index = int(input())
     except:
         pass
+if(index == len(categories)):
+    index = random.randint(0, len(categories) - 1)
 
 print("Pick adjective count")
 adjectiveCount = 0
